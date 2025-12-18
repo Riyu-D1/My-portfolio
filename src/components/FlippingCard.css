@@ -1,0 +1,65 @@
+/* Container - fixed in center while scrolling */
+.flipping-card-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    pointer-events: none;
+    width: 320px;
+    height: 450px;
+    perspective: 1500px;
+}
+
+/* When stopped - absolute position on the page */
+.flipping-card-container.stopped {
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+/* Card wrapper - this is what rotates */
+.flipping-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+/* Both card sides */
+.card-side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.card-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Front face - starts visible */
+.card-front {
+    transform: rotateY(0deg);
+}
+
+/* Back face - rotated 180deg so it shows when card flips */
+.card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, #e8ecf1 0%, #d4dce8 100%);
+}
+
+@media (max-width: 768px) {
+    .flipping-card-container {
+        width: 240px;
+        height: 320px;
+    }
+}

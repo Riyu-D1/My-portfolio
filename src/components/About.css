@@ -1,0 +1,193 @@
+.about-section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color: white;
+    padding: 4rem 2rem;
+}
+
+.about-container {
+    max-width: 1400px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.about-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.about-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #ccc;
+    max-width: 500px;
+    margin: 0;
+}
+
+.about-experience {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.about-experience-number {
+    font-size: 8rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #4a90e2;
+    margin: 0;
+}
+
+.about-experience-label {
+    font-size: 1rem;
+    color: #ccc;
+    text-transform: capitalize;
+}
+
+.about-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.about-contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.about-contact-label {
+    font-size: 0.875rem;
+    color: #888;
+}
+
+.about-contact-value {
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+.about-socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.about-social-link {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.about-social-link:hover {
+    background-color: #2a2a2a;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.about-story-btn {
+    width: fit-content;
+    padding: 1rem 2.5rem;
+    background-color: transparent;
+    border: 1px solid #e0e0e0;
+    border-radius: 50px;
+    color: #e0e0e0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.about-story-btn:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.about-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image-wrapper {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 3/4;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-experience-number {
+        font-size: 6rem;
+    }
+
+    .about-right {
+        order: -1;
+    }
+
+    .about-image-wrapper {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .about-title {
+        font-size: 2.5rem;
+    }
+
+    .about-description {
+        font-size: 1rem;
+    }
+
+    .about-experience-number {
+        font-size: 5rem;
+    }
+
+    .about-image-wrapper {
+        max-width: 100%;
+    }
+}
