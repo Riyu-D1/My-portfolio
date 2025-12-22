@@ -96,3 +96,14 @@ html.lenis body {
   padding-top: 10rem;
   padding-bottom: 10rem;
 }
+
+/* Page transition styles */
+.app-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Ensure smooth page transitions */
+.page-transition-wrapper {
+  will-change: opacity, transform;
+}

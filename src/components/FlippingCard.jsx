@@ -7,11 +7,11 @@ const FlippingCard = () => {
     const cardRef = useRef(null);
     const [rotation, setRotation] = useState(0);
     const [isReady, setIsReady] = useState(false);
-    const [isStopped, setIsStopped] = useState(false); // When true, card becomes absolute
-    const [stopPosition, setStopPosition] = useState(0); // Absolute Y position on page
+    const [isStopped, setIsStopped] = useState(false);
+    const [stopPosition, setStopPosition] = useState(0);
     const boundsRef = useRef({ start: 0, end: 1, stopY: 0 });
 
-    // Preload both images
+    // Preload both images with smooth fade-in
     useEffect(() => {
         const frontImg = new Image();
         const backImg = new Image();
@@ -19,12 +19,17 @@ const FlippingCard = () => {
         
         const onLoad = () => {
             loaded++;
-            if (loaded >= 1) setIsReady(true); // Show card after front loads
+            if (loaded >= 1) {
+                // Add a small delay to sync with page transition
+                setTimeout(() => setIsReady(true), 300);
+            }
         };
         
         const onError = () => {
             loaded++;
-            if (loaded >= 1) setIsReady(true); // Show card even if back fails
+            if (loaded >= 1) {
+                setTimeout(() => setIsReady(true), 300);
+            }
         };
         
         frontImg.onload = onLoad;
