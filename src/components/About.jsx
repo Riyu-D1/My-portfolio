@@ -1,13 +1,63 @@
+import { useRef, useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './About.css';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const About = () => {
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.from('.about-title', {
+                scrollTrigger: {
+                    trigger: '.about-section',
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+
+            gsap.from('.about-description', {
+                scrollTrigger: {
+                    trigger: '.about-section',
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                delay: 0.2,
+                ease: 'power3.out'
+            });
+
+            gsap.from('.about-experience', {
+                scrollTrigger: {
+                    trigger: '.about-experience',
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                },
+                scale: 0.9,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <section id="about" className="about-section">
+        <section ref={sectionRef} id="about" className="about-section">
             <div className="about-container">
                 <div className="about-left">
                     <h2 className="about-title">ABOUT ME</h2>
                     <p className="about-description">
-                        Hi, I'm Duncan — a digital designer and Framer developer passionate about crafting meaningful and impactful digital experiences.
+                        Hi, I'm Riyansh — a digital designer and developer passionate about crafting meaningful and impactful digital experiences.
                     </p>
 
                     <div className="about-experience">

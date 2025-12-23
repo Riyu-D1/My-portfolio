@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Beams from '../components/Beams';
 import MagicBento from '../components/MagicBento';
-import profileImg from '../assets/profile.png';
+import profileImg from '../assets/memoji.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -170,12 +170,6 @@ const AboutPage = () => {
                             I'm a young entrepreneur and tech enthusiast with a passion for exploring the future of AI, design, and digital tools. I love building smart, impactful projects that solve real problems — from AI-powered platforms to productivity tools that empower students and creators. I'm always learning, experimenting, and pushing ideas forward.
                         </p>
                     </div>
-
-                    <div className="profile-card">
-                        <div className="card-inner">
-                            <img src={profileImg} alt="Riyansh Diwan" className="profile-image" />
-                        </div>
-                    </div>
                 </div>
 
                 <div className="journey-section">
@@ -186,7 +180,8 @@ const AboutPage = () => {
                 </div>
                     
                 <div className="skills-section">
-                    <h2 className="skills-title">MY SKILLS</h2>
+                    <h2 className="skills-title">DESIGN WITH STRATEGY AND CREATIVITY</h2>
+                    <p className="skills-subtitle">My process blends strategy and creativity to address challenges, craft solutions, and deliver designs that effectively communicate your message.</p>
                     <div className="bento-container">
                         <MagicBento 
                             textAutoHide={true}
@@ -198,13 +193,60 @@ const AboutPage = () => {
                             clickEffect={true}
                             spotlightRadius={300}
                             particleCount={12}
-                            glowColor="132, 0, 255"
+                            glowColor="186, 203, 219"
                         />
+                    </div>
+                </div>
+
+                <div className="contact-section">
+                    <div className="contact-container">
+                        <div className="contact-image-wrapper">
+                            <img src={profileImg} alt="Riyansh Diwan" className="contact-image" />
+                            <div className="wave-icon">👋</div>
+                        </div>
+                        
+                        <div className="contact-form-wrapper">
+                            <h2 className="contact-title">LET'S WORK TOGETHER</h2>
+                            <p className="contact-subtitle">Let's build something impactful together—whether it's your brand, your website, or your next big idea.</p>
+                            
+                            <form className="contact-form">
+                                <div className="form-row">
+                                    <div className="form-group">
+                                        <label>Name</label>
+                                        <input type="text" placeholder="John Smith" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Email</label>
+                                        <input type="email" placeholder="johnsmith@gmail.com" />
+                                    </div>
+                                </div>
+                                
+                                <div className="form-group">
+                                    <label>Service Needed ?</label>
+                                    <select>
+                                        <option>Select...</option>
+                                        <option>Web Development</option>
+                                        <option>UI/UX Design</option>
+                                        <option>Consultation</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div className="form-group">
+                                    <label>What Can I Help You...</label>
+                                    <textarea rows="5" placeholder="Hello, I'd like to enquire about..."></textarea>
+                                </div>
+                                
+                                <button type="submit" className="submit-btn">SUBMIT</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+                
                 .about-page {
                     position: relative;
                     min-height: 100vh;
@@ -217,54 +259,57 @@ const AboutPage = () => {
                 .about-hero-container {
                     position: relative;
                     z-index: 10;
-                    max-width: 1400px;
+                    max-width: 900px;
                     margin: 0 auto;
-                    padding: 150px 4rem 100px;
-                    display: grid;
-                    grid-template-columns: 1fr 400px;
-                    gap: 4rem;
-                    align-items: start;
+                    padding: 150px 4rem 0px;
+                    text-align: center;
                 }
                 
                 .about-hero-content {
-                    max-width: 650px;
+                    max-width: 100%;
                 }
                 
                 .journey-section {
                     position: relative;
                     z-index: 10;
-                    max-width: 1400px;
+                    max-width: 900px;
                     margin: 0 auto;
-                    padding: 0 4rem 100px;
+                    padding: 0px 4rem 100px;
+                    text-align: center;
                 }
                 
                 .about-main-title {
                     font-size: clamp(4rem, 10vw, 6rem);
-                    font-family: 'Teko', sans-serif;
+                    font-family: 'Bebas Neue', sans-serif;
                     text-transform: uppercase;
                     margin-bottom: 2rem;
                     line-height: 0.9;
                     color: #fff;
-                    font-weight: 700;
+                    font-weight: 400;
                     letter-spacing: 0.02em;
                 }
                 
                 .about-name {
                     font-size: clamp(1.5rem, 3vw, 1.75rem);
-                    font-weight: 600;
+                    font-weight: 700;
                     text-transform: uppercase;
                     margin-bottom: 1.5rem;
                     color: #fff;
-                    letter-spacing: 0.1em;
+                    letter-spacing: 0.15em;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
                 }
                 
                 .about-intro {
-                    font-size: clamp(1.125rem, 2vw, 1.25rem);
-                    line-height: 1.8;
+                    font-size: clamp(1rem, 2vw, 1.125rem);
+                    line-height: 1.7;
                     color: #b0b0b0;
-                    font-weight: 300;
-                    margin-bottom: 3rem;
-                    max-width: 600px;
+                    font-weight: 400;
+                    margin-bottom: 1rem;
+                    max-width: 100%;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+                    border-left: 3px solid #bacbdb;
+                    padding-left: 1.5rem;
+                    text-align: left;
                 }
                 
                 .section-heading {
@@ -282,7 +327,7 @@ const AboutPage = () => {
                     color: #b0b0b0;
                     font-weight: 300;
                     margin-bottom: 1.5rem;
-                    border-left: 3px solid #6d28d9;
+                    border-left: 3px solid #bacbdb;
                     padding-left: 1.5rem;
                 }
                 
@@ -293,36 +338,31 @@ const AboutPage = () => {
                     font-weight: 300;
                     margin-top: 3rem;
                     font-style: italic;
-                    border-left: 3px solid #6d28d9;
+                    border-left: 3px solid #bacbdb;
                     padding-left: 1.5rem;
                 }
                 
                 .journey-title {
                     font-size: clamp(3rem, 8vw, 5rem);
-                    font-family: 'Teko', sans-serif;
+                    font-family: 'Bebas Neue', sans-serif;
                     text-transform: uppercase;
-                    margin-top: 0;
-                    margin-bottom: 2rem;
+                    margin: 2rem 0 2rem 0;
                     line-height: 1.1;
                     color: #fff;
-                    font-weight: 700;
+                    font-weight: 400;
                     letter-spacing: 0.02em;
                 }
                 
-                .journey-section {
-                    position: relative;
-                    z-index: 10;
-                    max-width: 1400px;
-                    margin: 0 auto;
-                    padding: 100px 4rem 50px;
-                }
-                
                 .journey-text {
-                    font-size: clamp(1.125rem, 2vw, 1.375rem);
-                    line-height: 1.8;
+                    font-size: clamp(1rem, 2vw, 1.125rem);
+                    line-height: 1.7;
                     color: #b0b0b0;
-                    font-weight: 300;
-                    max-width: 900px;
+                    font-weight: 400;
+                    max-width: 100%;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+                    border-left: 3px solid #bacbdb;
+                    padding-left: 1.5rem;
+                    text-align: left;
                 }
                 
                 .skills-section {
@@ -334,14 +374,26 @@ const AboutPage = () => {
                 
                 .skills-title {
                     font-size: clamp(3rem, 8vw, 5rem);
-                    font-family: 'Teko', sans-serif;
+                    font-family: 'Bebas Neue', sans-serif;
                     text-transform: uppercase;
-                    margin: 0 auto 3rem;
+                    margin: 0 auto 1.5rem;
                     line-height: 1.1;
                     color: #fff;
-                    font-weight: 700;
+                    font-weight: 400;
                     letter-spacing: 0.02em;
                     max-width: 1600px;
+                    text-align: center;
+                }
+                
+                .skills-subtitle {
+                    font-size: clamp(1rem, 2vw, 1.125rem);
+                    line-height: 1.7;
+                    color: #b0b0b0;
+                    font-weight: 400;
+                    max-width: 800px;
+                    margin: 0 auto 4rem;
+                    text-align: center;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
                 }
                 
                 .bento-container {
@@ -350,22 +402,6 @@ const AboutPage = () => {
                     margin: 0 auto;
                     padding: 0;
                 }
-                .skills-title {
-                    font-size: clamp(3rem, 8vw, 5rem);
-                    font-family: 'Teko', sans-serif;
-                    text-transform: uppercase;
-                    margin: 0 auto 3rem;
-                    line-height: 1.1;
-                    color: #fff;
-                    font-weight: 700;
-                    letter-spacing: 0.02em;
-                    max-width: 1600px;
-                }
-                
-                .bento-container {
-                    width: 100%;
-                    max-width: 1600px;
-                    margin: 0 auto;
                     padding: 0;
                 }
                 
@@ -375,6 +411,7 @@ const AboutPage = () => {
                     width: 100%;
                     max-width: 400px;
                     height: fit-content;
+                    max-height: calc(100vh - 200px);
                     background: rgba(255, 255, 255, 0.05);
                     border-radius: 24px;
                     padding: 2rem;
@@ -399,6 +436,157 @@ const AboutPage = () => {
                     display: block;
                 }
                 
+                .contact-section {
+                    position: relative;
+                    z-index: 10;
+                    width: 100%;
+                    padding: 100px 4rem;
+                    background: transparent;
+                }
+                
+                .contact-container {
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 6rem;
+                    align-items: center;
+                }
+                
+                .contact-image-wrapper {
+                    position: relative;
+                }
+                
+                .contact-image {
+                    width: 100%;
+                    max-width: 500px;
+                    height: auto;
+                    border-radius: 20px;
+                    object-fit: cover;
+                }
+                
+                .wave-icon {
+                    position: absolute;
+                    bottom: -30px;
+                    left: -30px;
+                    width: 80px;
+                    height: 80px;
+                    background: #bacbdb;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 2.5rem;
+                    box-shadow: 0 4px 20px rgba(186, 203, 219, 0.3);
+                }
+                
+                .contact-form-wrapper {
+                    max-width: 600px;
+                }
+                
+                .contact-title {
+                    font-size: clamp(3rem, 8vw, 5rem);
+                    font-family: 'Bebas Neue', sans-serif;
+                    text-transform: uppercase;
+                    margin: 0 0 1rem 0;
+                    line-height: 1.1;
+                    color: #fff;
+                    font-weight: 400;
+                    letter-spacing: 0.02em;
+                }
+                
+                .contact-subtitle {
+                    font-size: clamp(1rem, 2vw, 1.125rem);
+                    line-height: 1.7;
+                    color: #b0b0b0;
+                    font-weight: 400;
+                    margin-bottom: 3rem;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+                }
+                
+                .contact-form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.5rem;
+                }
+                
+                .form-row {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 1.5rem;
+                }
+                
+                .form-group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                
+                .form-group label {
+                    font-size: 0.875rem;
+                    color: #bacbdb;
+                    font-weight: 500;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+                }
+                
+                .form-group input,
+                .form-group select,
+                .form-group textarea {
+                    background: rgba(255, 255, 255, 0.05);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: 8px;
+                    padding: 1rem;
+                    color: #fff;
+                    font-size: 1rem;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+                    transition: all 0.3s ease;
+                }
+                
+                .form-group input:focus,
+                .form-group select:focus,
+                .form-group textarea:focus {
+                    outline: none;
+                    border-color: #bacbdb;
+                    background: rgba(255, 255, 255, 0.08);
+                }
+                
+                .form-group input::placeholder,
+                .form-group textarea::placeholder {
+                    color: rgba(255, 255, 255, 0.3);
+                }
+                
+                .form-group select {
+                    cursor: pointer;
+                }
+                
+                .form-group textarea {
+                    resize: vertical;
+                    min-height: 120px;
+                }
+                
+                .submit-btn {
+                    background: transparent;
+                    border: 2px solid #bacbdb;
+                    color: #bacbdb;
+                    padding: 1rem 3rem;
+                    border-radius: 50px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    letter-spacing: 0.1em;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    align-self: flex-start;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+                    text-transform: uppercase;
+                }
+                
+                .submit-btn:hover {
+                    background: #bacbdb;
+                    color: #000;
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 20px rgba(186, 203, 219, 0.3);
+                }
+                
                 @media (max-width: 1200px) {
                     .about-hero-container {
                         grid-template-columns: 1fr;
@@ -418,6 +606,17 @@ const AboutPage = () => {
                         top: 0;
                         max-width: 350px;
                         margin: 0 auto;
+                    }
+                    
+                    .contact-container {
+                        grid-template-columns: 1fr;
+                        gap: 3rem;
+                    }
+                    
+                    .contact-image {
+                        max-width: 400px;
+                        margin: 0 auto;
+                        display: block;
                     }
                 }
                 
@@ -444,6 +643,14 @@ const AboutPage = () => {
                     .profile-card {
                         max-width: 300px;
                         padding: 1.5rem;
+                    }
+                    
+                    .form-row {
+                        grid-template-columns: 1fr;
+                    }
+                    
+                    .contact-section {
+                        padding: 60px 2rem;
                     }
                 }
             `}</style>

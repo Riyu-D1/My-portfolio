@@ -4,36 +4,36 @@ import './MagicBento.css';
 
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
-const DEFAULT_GLOW_COLOR = '132, 0, 255';
+const DEFAULT_GLOW_COLOR = '186, 203, 219';
 const MOBILE_BREAKPOINT = 768;
 
 const cardData = [
   {
-    color: '#060010',
+    color: '#0d1929',
     title: 'My Approach',
     description: 'I work across software development, web design, and physical tinkering, combining creativity with problem-solving to bring ideas to life. Whether I\'m designing an interface, writing logic for an application, or experimenting with a 3D-printed part, I enjoy understanding how things work and improving them through iteration.',
     label: 'Process'
   },
   {
-    color: '#060010',
+    color: '#0d1929',
     title: 'Beyond Code',
     description: 'My interest in technology goes beyond code. I spend time tinkering with hardware, experimenting with 3D printing, and modifying or building small projects just to see what\'s possible. That hands-on approach influences how I think as a developer — I like systems that are efficient, practical, and thoughtfully designed.',
     label: 'Making'
   },
   {
-    color: '#060010',
+    color: '#0d1929',
     title: 'Software Development',
     description: 'On the software side, I focus on creating clean, functional, and user-friendly applications. I care about structure, usability, and performance, and I enjoy refining small details that make an experience feel polished. I see development as a continuous learning process, where each project builds on the last.',
     label: 'Code'
   },
   {
-    color: '#060010',
+    color: '#0d1929',
     title: 'What Drives Me',
     description: 'What ties everything I do together is curiosity. I like learning by doing — testing ideas, fixing what breaks, and improving what already works. This portfolio represents that mindset: a collection of projects, experiments, and skills that reflect my growth as a developer and maker.',
     label: 'Curiosity'
   },
   {
-    color: '#060010',
+    color: '#0d1929',
     title: 'Continuous Growth',
     description: 'I\'m still learning, still building, and always looking for new challenges — whether that\'s in code, design, or something I can physically create.',
     label: 'Learning'

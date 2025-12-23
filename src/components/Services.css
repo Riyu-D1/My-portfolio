@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.services-section {
+    position: relative;
+    padding: 100px 4rem;
+    background: transparent;
+}
+
+.services-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.services-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.1;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+
+.services-subtitle {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.7;
+    color: #b0b0b0;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.service-card {
+    background: #0d1929;
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(186, 203, 219, 0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(186, 203, 219, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.service-header {
+    margin-bottom: 1.5rem;
+}
+
+.service-number {
+    font-size: 3rem;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #bacbdb;
+    line-height: 1;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.service-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.05em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    margin: 0;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-item {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.service-item:last-child {
+    border-bottom: none;
+}
+
+.service-icon {
+    color: #bacbdb;
+    font-size: 0.75rem;
+    margin-top: 3px;
+}
+
+@media (max-width: 1200px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-section {
+        padding: 60px 2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+}

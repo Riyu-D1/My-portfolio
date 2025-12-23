@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.featured-projects-section {
+    position: relative;
+    padding: 100px 4rem;
+    background: transparent;
+}
+
+.projects-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.projects-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.1;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+
+.projects-subtitle {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.7;
+    color: #b0b0b0;
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.project-card {
+    position: relative;
+    background: #0d1929;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(186, 203, 219, 0.1);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(186, 203, 219, 0.3);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.project-image {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--card-color) 0%, rgba(0,0,0,0.5) 100%);
+}
+
+.project-initial {
+    font-size: 5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.project-content {
+    padding: 2rem;
+}
+
+.project-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #bacbdb;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.project-name {
+    font-size: 1.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #fff;
+    margin: 0.5rem 0 1rem;
+    letter-spacing: 0.02em;
+}
+
+.project-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #b0b0b0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    margin: 0;
+}
+
+.project-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(13, 25, 41, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-hover-overlay {
+    opacity: 1;
+}
+
+.view-project {
+    font-size: 1.25rem;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #bacbdb;
+    letter-spacing: 0.1em;
+    border: 2px solid #bacbdb;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .view-project:hover {
+    background: #bacbdb;
+    color: #0d1929;
+}
+
+.projects-cta {
+    text-align: center;
+}
+
+.browse-all-btn {
+    background: transparent;
+    border: 2px solid #bacbdb;
+    color: #bacbdb;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    text-transform: uppercase;
+}
+
+.browse-all-btn:hover {
+    background: #bacbdb;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(186, 203, 219, 0.3);
+}
+
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .featured-projects-section {
+        padding: 60px 2rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image {
+        height: 200px;
+    }
+
+    .project-content {
+        padding: 1.5rem;
+    }
+}

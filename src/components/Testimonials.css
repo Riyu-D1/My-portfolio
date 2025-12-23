@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.testimonials-section {
+    position: relative;
+    padding: 100px 4rem;
+    background: transparent;
+}
+
+.testimonials-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.testimonials-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.1;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+
+.testimonials-subtitle {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.7;
+    color: #b0b0b0;
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin-bottom: 4rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: clamp(3rem, 6vw, 4rem);
+    font-family: 'Bebas Neue', sans-serif;
+    color: #bacbdb;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #b0b0b0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.testimonial-card {
+    background: #0d1929;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(186, 203, 219, 0.1);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(186, 203, 219, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-stars {
+    margin-bottom: 1rem;
+}
+
+.star {
+    color: #bacbdb;
+    font-size: 1.25rem;
+    margin-right: 2px;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #d0d0d0;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #bacbdb 0%, #8aa3b8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0d1929;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.author-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.author-role {
+    font-size: 0.875rem;
+    color: #b0b0b0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+@media (max-width: 1024px) {
+    .stats-container {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-section {
+        padding: 60px 2rem;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+}
