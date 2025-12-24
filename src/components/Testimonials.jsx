@@ -1,9 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './Testimonials.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const testimonialsData = [
     {
@@ -40,64 +36,52 @@ const statsData = [
 
 const Testimonials = () => {
     const sectionRef = useRef(null);
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isVisible, setIsVisible] = useState(false);
     const [counters, setCounters] = useState(statsData.map(() => 0));
+    const hasAnimated = useRef(false);
 
     useEffect(() => {
-        const ctx = gsap.context(() => {
-            // Animate title
-            gsap.from('.testimonials-title', {
-                scrollTrigger: {
-                    trigger: '.testimonials-section',
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse'
-                },
-                y: 100,
-                opacity: 0,
-                duration: 1,
-                ease: 'power3.out'
-            });
-
-            // Animate stats with counter
-            statsData.forEach((stat, index) => {
-                gsap.to({}, {
-                    scrollTrigger: {
-                        trigger: '.stats-container',
-                        start: 'top 80%',
-                        onEnter: () => {
-                            gsap.to({}, {
-                                duration: 2,
-                                ease: 'power2.out',
-                                onUpdate: function() {
-                                    const progress = this.progress();
-                                    setCounters(prev => {
-                                        const newCounters = [...prev];
-                                        newCounters[index] = Math.round(stat.value * progress);
-                                        return newCounters;
-                                    });
-                                }
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting && !hasAnimated.current) {
+                    setIsVisible(true);
+                    hasAnimated.current = true;
+                    
+                    // Start counter animations
+                    statsData.forEach((stat, index) => {
+                        const duration = 1500;
+                        const startTime = Date.now();
+                        
+                        const animate = () => {
+                            const elapsed = Date.now() - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            const current = Math.round(stat.value * progress);
+                            
+                            setCounters(prev => {
+                                const newCounters = [...prev];
+                                newCounters[index] = current;
+                                return newCounters;
                             });
-                        }
-                    }
-                });
-            });
+                            
+                            if (progress < 1) {
+                                requestAnimationFrame(animate);
+                            }
+                        };
+                        
+                        animate();
+                    });
+                    
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.1 }
+        );
 
-            // Animate testimonial cards
-            gsap.from('.testimonial-card', {
-                scrollTrigger: {
-                    trigger: '.testimonials-grid',
-                    start: 'top 85%',
-                    toggleActions: 'play none none reverse'
-                },
-                y: 60,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.15,
-                ease: 'power3.out'
-            });
-        }, sectionRef);
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
 
-        return () => ctx.revert();
+        return () => observer.disconnect();
     }, []);
 
     const renderStars = (count) => {
@@ -107,7 +91,7 @@ const Testimonials = () => {
     };
 
     return (
-        <section ref={sectionRef} className="testimonials-section">
+        <section ref={sectionRef} className={`testimonials-section ${isVisible ? 'visible' : ''}`}>
             <div className="testimonials-container">
                 <h2 className="testimonials-title">WHAT MY CLIENTS SAY</h2>
                 <p className="testimonials-subtitle">
@@ -117,7 +101,7 @@ const Testimonials = () => {
 
                 <div className="stats-container">
                     {statsData.map((stat, index) => (
-                        <div key={index} className="stat-item">
+                        <div key={index} className="stat-item" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
                             <div className="stat-value">
                                 {counters[index]}{stat.suffix}
                             </div>
@@ -128,7 +112,7 @@ const Testimonials = () => {
 
                 <div className="testimonials-grid">
                     {testimonialsData.map((testimonial, index) => (
-                        <div key={index} className="testimonial-card">
+                        <div key={index} className="testimonial-card" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
                             <div className="testimonial-stars">
                                 {renderStars(testimonial.rating)}
                             </div>

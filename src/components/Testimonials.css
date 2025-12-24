@@ -6,6 +6,49 @@
     background: transparent;
 }
 
+.testimonials-section .testimonials-title,
+.testimonials-section .testimonials-subtitle,
+.testimonials-section .stat-item,
+.testimonials-section .testimonial-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.testimonials-section.visible .testimonials-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.testimonials-section.visible .testimonials-subtitle {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.testimonials-section.visible .stat-item {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.testimonials-section.visible .testimonial-card {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .testimonials-container {
     max-width: 1400px;
     margin: 0 auto;

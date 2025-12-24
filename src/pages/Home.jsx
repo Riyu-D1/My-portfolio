@@ -5,7 +5,7 @@ import Services from '../components/Services';
 import FeaturedProjects from '../components/FeaturedProjects';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
-import Contact from '../components/Contact';
+import ContactForm from '../components/ContactForm';
 import FlippingCard from '../components/FlippingCard';
 import LoadingScreen from '../components/LoadingScreen';
 
@@ -37,7 +37,7 @@ const Home = () => {
             <FeaturedProjects />
             <Testimonials />
             <FAQ />
-            <Contact />
+            <ContactForm />
         </>
     );
 };

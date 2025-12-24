@@ -1,9 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './FAQ.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const faqData = [
     {
@@ -35,36 +31,24 @@ const faqData = [
 const FAQ = () => {
     const sectionRef = useRef(null);
     const [openIndex, setOpenIndex] = useState(null);
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.from('.faq-title', {
-                scrollTrigger: {
-                    trigger: '.faq-section',
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse'
-                },
-                y: 100,
-                opacity: 0,
-                duration: 1,
-                ease: 'power3.out'
-            });
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.1 }
+        );
 
-            gsap.from('.faq-item', {
-                scrollTrigger: {
-                    trigger: '.faq-list',
-                    start: 'top 85%',
-                    toggleActions: 'play none none reverse'
-                },
-                y: 40,
-                opacity: 0,
-                duration: 0.6,
-                stagger: 0.1,
-                ease: 'power3.out'
-            });
-        }, sectionRef);
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
 
-        return () => ctx.revert();
+        return () => observer.disconnect();
     }, []);
 
     const toggleFAQ = (index) => {
@@ -72,7 +56,7 @@ const FAQ = () => {
     };
 
     return (
-        <section ref={sectionRef} className="faq-section">
+        <section ref={sectionRef} className={`faq-section ${isVisible ? 'visible' : ''}`}>
             <div className="faq-container">
                 <h2 className="faq-title">FREQUENTLY ASKED QUESTIONS</h2>
                 <p className="faq-subtitle">
@@ -85,6 +69,7 @@ const FAQ = () => {
                         <div 
                             key={index} 
                             className={`faq-item ${openIndex === index ? 'open' : ''}`}
+                            style={{ animationDelay: `${index * 0.1}s` }}
                         >
                             <button 
                                 className="faq-question"
