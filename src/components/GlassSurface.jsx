@@ -137,13 +137,22 @@ const GlassSurface = ({
     }, [width, height]);
 
     const supportsSVGFilters = () => {
+        // Check if this is a touch device (mobile/tablet)
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         const isWebkit = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
         const isFirefox = /Firefox/.test(navigator.userAgent);
-
-        if (isWebkit || isFirefox) {
+        
+        // On mobile/tablet devices, use enhanced fallback for better performance
+        if (isTouchDevice) {
             return false;
         }
 
+        // Firefox doesn't support backdrop-filter with SVG filters well
+        if (isFirefox) {
+            return false;
+        }
+        
+        // Desktop Safari may work, let's try
         const div = document.createElement('div');
         div.style.backdropFilter = `url(#${filterId})`;
         return div.style.backdropFilter !== '';

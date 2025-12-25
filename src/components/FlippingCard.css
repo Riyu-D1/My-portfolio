@@ -67,7 +67,7 @@
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .flipping-card-container {
-        width: 260px;
-        height: 360px;
+        width: 200px;
+        height: 280px;
     }
 }
