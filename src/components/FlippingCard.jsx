@@ -9,7 +9,19 @@ const FlippingCard = () => {
     const [isReady, setIsReady] = useState(false);
     const [isStopped, setIsStopped] = useState(false);
     const [stopPosition, setStopPosition] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
     const boundsRef = useRef({ start: 0, end: 1, stopY: 0 });
+
+    // Check if mobile
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     // Preload both images with smooth fade-in
     useEffect(() => {
@@ -73,8 +85,10 @@ const FlippingCard = () => {
         return () => window.removeEventListener('resize', calculateBounds);
     }, []);
 
-    // Handle scroll
+    // Handle scroll - only on non-mobile
     useEffect(() => {
+        if (isMobile) return;
+
         const handleScroll = () => {
             const { start, end, stopY } = boundsRef.current;
             const scrollY = window.scrollY;
@@ -99,8 +113,14 @@ const FlippingCard = () => {
         handleScroll();
 
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isMobile]);
 
+    // Don't render on mobile - the About section handles the mobile card
+    if (isMobile) {
+        return null;
+    }
+
+    // Desktop: render scroll-animated card
     return (
         <div 
             className={`flipping-card-container ${isStopped ? 'stopped' : ''}`}

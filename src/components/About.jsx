@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import profileImg from '../assets/profile.png';
 import './About.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -46,6 +47,18 @@ const About = () => {
                 duration: 0.8,
                 ease: 'power3.out'
             });
+
+            gsap.from('.about-mobile-card', {
+                scrollTrigger: {
+                    trigger: '.about-section',
+                    start: 'top 90%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
         }, sectionRef);
 
         return () => ctx.revert();
@@ -53,6 +66,9 @@ const About = () => {
 
     return (
         <section ref={sectionRef} id="about" className="about-section">
+            <div className="about-mobile-card">
+                <img src={profileImg} alt="Riyansh Diwan" />
+            </div>
             <div className="about-container">
                 <div className="about-left">
                     <h2 className="about-title">ABOUT ME</h2>

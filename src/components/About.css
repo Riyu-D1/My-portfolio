@@ -3,11 +3,17 @@
     min-height: 100vh;
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #000;
     color: white;
     padding: 4rem 2rem;
+}
+
+/* Mobile card - hidden on desktop */
+.about-mobile-card {
+    display: none;
 }
 
 .about-container {
@@ -173,21 +179,76 @@
 @media (max-width: 768px) {
     .about-section {
         padding: 3rem 1.5rem;
+        min-height: auto;
+    }
+
+    /* Show mobile card */
+    .about-mobile-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .about-mobile-card img {
+        width: 200px;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 16px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     }
 
     .about-title {
         font-size: 2.5rem;
+        text-align: center;
     }
 
     .about-description {
         font-size: 1rem;
+        text-align: center;
+    }
+
+    .about-experience {
+        align-items: center;
     }
 
     .about-experience-number {
         font-size: 5rem;
     }
 
+    .about-contact {
+        align-items: center;
+    }
+
+    .about-socials {
+        justify-content: center;
+    }
+
+    .about-story-btn {
+        align-self: center;
+    }
+
     .about-image-wrapper {
         max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        padding: 2rem 1rem;
+    }
+
+    .about-mobile-card img {
+        width: 180px;
+        height: 250px;
+    }
+
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-experience-number {
+        font-size: 4rem;
     }
 }
