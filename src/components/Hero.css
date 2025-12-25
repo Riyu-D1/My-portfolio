@@ -156,6 +156,10 @@
 }
 
 @media (max-width: 1024px) {
+    .hero-container {
+        padding: 0 1.5rem;
+    }
+
     .hero-main-row {
         flex-direction: column;
         gap: 2rem;
@@ -163,10 +167,11 @@
 
     .hero-top-name {
         margin-bottom: 2rem;
+        font-size: 0.875rem;
     }
 
     .hero-large-text {
-        font-size: 5rem;
+        font-size: clamp(3rem, 10vw, 5rem);
         text-align: center;
     }
 
@@ -174,6 +179,24 @@
     .hero-large-text.right {
         text-align: center;
         padding: 0;
+    }
+
+    .hero-large-text.top-left {
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+
+    .hero-bottom-right {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        align-items: center;
+    }
+
+    .hero-content-wrapper {
+        min-height: auto;
+        flex-direction: column;
     }
 
     .hero-right-col {
@@ -185,6 +208,7 @@
         padding-left: 0;
         text-align: center;
         margin-top: 1rem;
+        max-width: 100%;
     }
 
     .hero-info-section {
@@ -192,9 +216,53 @@
         gap: 2rem;
         align-items: center;
         text-align: center;
+        padding: 1.5rem;
     }
 
     .hero-info-item {
         align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        min-height: auto;
+        padding: 80px 0 40px;
+    }
+
+    .hero-container {
+        padding: 0 1rem;
+    }
+
+    .hero-top-name {
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-large-text {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    .hero-description {
+        font-size: 0.875rem;
+        padding: 0 1rem;
+    }
+
+    .hero-info-section {
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .hero-info-label {
+        font-size: 0.7rem;
+    }
+
+    .hero-info-value {
+        font-size: 0.875rem;
+    }
+
+    .hero-info-socials {
+        gap: 1rem;
     }
 }

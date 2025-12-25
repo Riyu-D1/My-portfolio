@@ -69,3 +69,21 @@
     color: #bacbdb;
     letter-spacing: 0.1em;
 }
+
+@media (max-width: 480px) {
+    .loading-content {
+        width: 250px;
+    }
+
+    .loading-name {
+        font-size: 1.5rem;
+    }
+
+    .loading-logo {
+        margin-bottom: 2rem;
+    }
+
+    .loading-text {
+        font-size: 0.65rem;
+    }
+}

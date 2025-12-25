@@ -178,11 +178,22 @@
 
 @media (max-width: 768px) {
     .featured-projects-section {
-        padding: 60px 2rem;
+        padding: 60px 1.5rem;
+    }
+
+    .projects-title {
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
+    }
+
+    .projects-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 2.5rem;
+        padding: 0 0.5rem;
     }
 
     .projects-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .project-image {
@@ -191,5 +202,40 @@
 
     .project-content {
         padding: 1.5rem;
+    }
+
+    .project-name {
+        font-size: 1.25rem;
+    }
+
+    .browse-all-btn {
+        padding: 0.875rem 2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-projects-section {
+        padding: 50px 1rem;
+    }
+
+    .projects-title {
+        font-size: clamp(2rem, 12vw, 3rem);
+    }
+
+    .projects-subtitle {
+        font-size: 0.875rem;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+
+    .project-content {
+        padding: 1.25rem;
+    }
+
+    .project-description {
+        font-size: 0.85rem;
     }
 }

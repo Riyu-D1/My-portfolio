@@ -622,16 +622,37 @@ const AboutPage = () => {
                 
                 @media (max-width: 768px) {
                     .about-hero-container {
-                        padding: 120px 2rem 60px;
-                        gap: 3rem;
+                        padding: 100px 1.5rem 50px;
+                        gap: 2.5rem;
                     }
                     
                     .journey-section {
-                        padding: 50px 2rem 30px;
+                        padding: 40px 1.5rem 30px;
                     }
                     
                     .skills-section {
-                        padding: 0 1rem 60px;
+                        padding: 0 1rem 50px;
+                    }
+
+                    .about-main-title {
+                        font-size: clamp(3rem, 12vw, 4rem);
+                    }
+
+                    .about-name {
+                        font-size: clamp(1.2rem, 4vw, 1.5rem);
+                    }
+
+                    .about-intro {
+                        font-size: 0.95rem;
+                    }
+
+                    .journey-title,
+                    .skills-title {
+                        font-size: clamp(2rem, 8vw, 3rem);
+                    }
+
+                    .journey-text {
+                        font-size: 0.95rem;
                     }
                     
                     .about-intro,
@@ -641,8 +662,8 @@ const AboutPage = () => {
                     }
                     
                     .profile-card {
-                        max-width: 300px;
-                        padding: 1.5rem;
+                        max-width: 280px;
+                        padding: 1.25rem;
                     }
                     
                     .form-row {
@@ -650,7 +671,121 @@ const AboutPage = () => {
                     }
                     
                     .contact-section {
-                        padding: 60px 2rem;
+                        padding: 50px 1.5rem;
+                    }
+
+                    .contact-title {
+                        font-size: clamp(2rem, 8vw, 3rem);
+                        text-align: center;
+                    }
+
+                    .contact-subtitle {
+                        text-align: center;
+                        font-size: 0.95rem;
+                        margin-bottom: 2rem;
+                    }
+
+                    .contact-image {
+                        max-width: 280px;
+                    }
+
+                    .wave-icon {
+                        width: 60px;
+                        height: 60px;
+                        font-size: 1.75rem;
+                        bottom: -20px;
+                        left: -10px;
+                    }
+
+                    .submit-btn {
+                        align-self: center;
+                        width: 100%;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .about-hero-container {
+                        padding: 90px 1rem 40px;
+                    }
+                    
+                    .journey-section {
+                        padding: 30px 1rem 20px;
+                    }
+                    
+                    .skills-section {
+                        padding: 0 0.75rem 40px;
+                    }
+
+                    .about-main-title {
+                        font-size: clamp(2.5rem, 14vw, 3.5rem);
+                    }
+
+                    .about-name {
+                        font-size: clamp(1rem, 5vw, 1.25rem);
+                    }
+
+                    .about-intro,
+                    .journey-text {
+                        font-size: 0.875rem;
+                    }
+
+                    .journey-title,
+                    .skills-title {
+                        font-size: clamp(1.75rem, 10vw, 2.5rem);
+                    }
+
+                    .skills-subtitle {
+                        font-size: 0.875rem;
+                    }
+                    
+                    .about-intro,
+                    .section-text,
+                    .closing-text {
+                        padding-left: 0.75rem;
+                        border-left-width: 2px;
+                    }
+                    
+                    .profile-card {
+                        max-width: 240px;
+                        padding: 1rem;
+                    }
+                    
+                    .contact-section {
+                        padding: 40px 1rem;
+                    }
+
+                    .contact-title {
+                        font-size: clamp(1.75rem, 10vw, 2.5rem);
+                    }
+
+                    .contact-subtitle {
+                        font-size: 0.85rem;
+                    }
+
+                    .contact-image {
+                        max-width: 220px;
+                    }
+
+                    .wave-icon {
+                        width: 50px;
+                        height: 50px;
+                        font-size: 1.5rem;
+                    }
+
+                    .form-group label {
+                        font-size: 0.8rem;
+                    }
+
+                    .form-group input,
+                    .form-group select,
+                    .form-group textarea {
+                        padding: 0.875rem;
+                        font-size: 0.9rem;
+                    }
+
+                    .submit-btn {
+                        padding: 0.875rem 2rem;
+                        font-size: 0.9rem;
                     }
                 }
             `}</style>
