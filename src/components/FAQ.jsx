@@ -3,27 +3,27 @@ import './FAQ.css';
 
 const faqData = [
     {
-        question: "WHAT SERVICES DO YOU OFFER?",
+        question: "What services do you offer?",
         answer: "I offer a range of services including UI/UX design, web development, AI-powered application development, and 3D printing/hardware prototyping. Each project is tailored to meet your specific needs and goals."
     },
     {
-        question: "HOW DOES THE DESIGN PROCESS WORK?",
+        question: "How does the design process work?",
         answer: "My process typically starts with understanding your goals and requirements. From there, I create wireframes and prototypes, iterate based on your feedback, and then move to final development. Communication is key throughout the entire process."
     },
     {
-        question: "HOW LONG DOES A PROJECT USUALLY TAKE?",
+        question: "How long does a project usually take?",
         answer: "Project timelines vary depending on scope and complexity. A simple landing page might take 1-2 weeks, while a full web application could take 4-8 weeks. I'll provide a detailed timeline during our initial consultation."
     },
     {
-        question: "WHAT DO I NEED TO PROVIDE BEFORE STARTING A PROJECT?",
+        question: "What do I need to provide before starting?",
         answer: "To get started, I typically need a clear project brief, any existing brand assets (logos, colors, fonts), content for the website, and examples of designs you like. The more information you provide, the better I can serve your needs."
     },
     {
-        question: "DO YOU OFFER REVISIONS?",
+        question: "Do you offer revisions?",
         answer: "Yes! I include revision rounds in all my projects to ensure you're completely satisfied with the final result. The number of revisions depends on the project scope and is discussed upfront."
     },
     {
-        question: "HOW DO I GET STARTED?",
+        question: "How do I get started?",
         answer: "Simply reach out through the contact form on this page or send me an email. I'll schedule a discovery call to discuss your project, understand your needs, and provide a custom quote."
     }
 ];
@@ -58,11 +58,7 @@ const FAQ = () => {
     return (
         <section ref={sectionRef} className={`faq-section ${isVisible ? 'visible' : ''}`}>
             <div className="faq-container">
-                <h2 className="faq-title">FREQUENTLY ASKED QUESTIONS</h2>
-                <p className="faq-subtitle">
-                    Here are answers to some of the most common questions I receive. 
-                    If you don't see your question here, feel free to reach out—I'm happy to help!
-                </p>
+                <h2 className="faq-title">Frequently Asked<br />Questions</h2>
 
                 <div className="faq-list">
                     {faqData.map((faq, index) => (
@@ -75,7 +71,7 @@ const FAQ = () => {
                                 className="faq-question"
                                 onClick={() => toggleFAQ(index)}
                             >
-                                <span className="faq-number">{index + 1}.</span>
+                                <span className="faq-number">{String(index + 1).padStart(2, '0')}</span>
                                 <span className="faq-question-text">{faq.question}</span>
                                 <span className="faq-icon">
                                     {openIndex === index ? '−' : '+'}

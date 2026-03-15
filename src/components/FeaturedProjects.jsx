@@ -7,101 +7,131 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projectsData = [
     {
-        title: 'SMARTCV',
-        category: 'Web Design',
-        description: 'SmartCV is an AI-powered platform that helps users create personalised, professional CVs in a fraction of the time.',
-        image: null,
-        color: '#2a4a7f'
+        title: 'SmartCV',
+        category: 'Website',
+        description: 'An AI-powered platform that helps users create personalised, professional CVs in a fraction of the time.',
+        color: '#1a1a2e',
+        accent: '#80a0c4',
     },
     {
-        title: 'STUDY FLOW',
-        category: 'Web Design',
-        description: 'Study Flow is an AI-powered app that blends social media with study tools, helping students create notes, flashcards, and quizzes.',
-        image: null,
-        color: '#4a2a7f'
+        title: 'Study Flow',
+        category: 'Website',
+        description: 'An AI-powered app that blends social media with study tools, helping students create notes, flashcards, and quizzes.',
+        color: '#1a0e2e',
+        accent: '#80a0c4',
     },
     {
-        title: 'LAUNCH LAYER',
-        category: 'Web Design',
-        description: 'Launch Layer helps businesses grow their online presence by creating professional, custom websites tailored to their unique needs.',
-        image: null,
-        color: '#7f4a2a'
-    }
+        title: 'Launch Layer',
+        category: 'Branding',
+        description: 'Helping businesses grow their online presence by creating professional, custom websites tailored to their unique needs.',
+        color: '#2e1a0e',
+        accent: '#80a0c4',
+    },
 ];
 
 const FeaturedProjects = () => {
     const sectionRef = useRef(null);
-    const cardsRef = useRef([]);
 
     useEffect(() => {
+        if (!sectionRef.current) return;
+
+        const sectionEl = sectionRef.current;
+        const projectsGridEl = sectionEl.querySelector('.projects-grid-inette');
+
+        // Kill any existing ScrollTriggers for this section to handle HMR properly
+        ScrollTrigger.getAll().forEach(st => {
+            if (st.trigger?.classList && (st.trigger.classList.contains('featured-projects-section') || 
+                st.trigger.classList.contains('projects-grid-inette'))) {
+                st.kill();
+            }
+        });
+
         const ctx = gsap.context(() => {
-            gsap.from('.projects-title', {
+            // Set initial state to ensure visibility
+            gsap.set('.projects-headline-line', { opacity: 1, y: 0 });
+            gsap.set('.wip-container', { opacity: 1, y: 0 });
+
+            gsap.from('.projects-headline-line', {
                 scrollTrigger: {
-                    trigger: '.featured-projects-section',
-                    start: 'top 80%',
+                    trigger: sectionEl,
+                    start: 'top 75%',
                     toggleActions: 'play none none reverse'
                 },
                 y: 100,
                 opacity: 0,
                 duration: 1,
-                ease: 'power3.out'
+                ease: 'power4.out',
+                stagger: 0.15,
             });
 
-            cardsRef.current.forEach((card, index) => {
-                gsap.from(card, {
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 85%',
-                        toggleActions: 'play none none reverse'
-                    },
-                    y: 100,
-                    opacity: 0,
-                    duration: 0.8,
-                    delay: index * 0.2,
-                    ease: 'power3.out'
-                });
+            gsap.from('.wip-container', {
+                scrollTrigger: {
+                    trigger: sectionEl,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.9,
+                ease: 'power3.out'
             });
         }, sectionRef);
 
-        return () => ctx.revert();
+        return () => {
+            ctx.revert();
+            ScrollTrigger.getAll().forEach(st => {
+                if (st.trigger?.classList && (st.trigger.classList.contains('featured-projects-section') || 
+                    st.trigger.classList.contains('projects-grid-inette'))) {
+                    st.kill();
+                }
+            });
+        };
     }, []);
 
     return (
-        <section ref={sectionRef} className="featured-projects-section">
+        <section ref={sectionRef} id="work" className="featured-projects-section">
             <div className="projects-container">
-                <h2 className="projects-title">FEATURED PROJECTS</h2>
-                <p className="projects-subtitle">
-                    These selected projects reflect my passion for blending strategy with creativity — 
-                    solving real problems through thoughtful design and impactful storytelling.
-                </p>
-
-                <div className="projects-grid">
-                    {projectsData.map((project, index) => (
-                        <div 
-                            key={index}
-                            className="project-card"
-                            ref={el => cardsRef.current[index] = el}
-                            style={{ '--card-color': project.color }}
-                        >
-                            <div className="project-image" style={{ background: project.color }}>
-                                <div className="project-image-placeholder">
-                                    <span className="project-initial">{project.title.charAt(0)}</span>
-                                </div>
-                            </div>
-                            <div className="project-content">
-                                <span className="project-category">{project.category}</span>
-                                <h3 className="project-name">{project.title}</h3>
-                                <p className="project-description">{project.description}</p>
-                            </div>
-                            <div className="project-hover-overlay">
-                                <span className="view-project">View Project →</span>
-                            </div>
-                        </div>
-                    ))}
+                {/* Headline */}
+                <div className="projects-headline">
+                    <div className="projects-headline-overflow">
+                        <h2 className="projects-headline-line">Selected</h2>
+                    </div>
+                    <div className="projects-headline-overflow">
+                        <h2 className="projects-headline-line">works.</h2>
+                    </div>
                 </div>
 
-                <div className="projects-cta">
-                    <button className="browse-all-btn">BROWSE ALL PROJECTS</button>
+                {/* Projects grid — replaced with WIP bar */}
+                <div className="wip-container" style={{
+                    width: '100%',
+                    padding: '4rem 2rem',
+                    background: 'rgba(255, 255, 255, 0.03)',
+                    border: '1px dashed rgba(255, 255, 255, 0.1)',
+                    borderRadius: '16px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginTop: '2rem',
+                    textAlign: 'center'
+                }}>
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#80a0c4" strokeWidth="1.5" style={{ marginBottom: '1rem' }}>
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" />
+                        <path d="M12 6V12L16 14" />
+                    </svg>
+                    <h3 style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
+                        fontWeight: '400',
+                        color: '#f5f5f5',
+                        margin: '0 0 0.5rem 0'
+                    }}>Work in progress</h3>
+                    <p style={{
+                        fontFamily: 'var(--font-sans)',
+                        fontSize: '1.1rem',
+                        color: '#888',
+                        margin: 0
+                    }}>Still designing this feature...</p>
                 </div>
             </div>
         </section>

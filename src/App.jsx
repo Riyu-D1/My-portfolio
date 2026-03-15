@@ -6,10 +6,35 @@ import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
 
 const Footer = () => (
-  <footer style={{ padding: '4rem 2rem', borderTop: '1px solid rgba(255,255,255,0.1)', marginTop: '4rem' }}>
-    <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <span>© 2025 Riyansh Diwan</span>
-      <span>Made with GSAP & React</span>
+  <footer style={{
+    padding: '3rem 4rem',
+    borderTop: '1px solid rgba(255,255,255,0.06)',
+    background: '#050505',
+  }}>
+    <div className="container" style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      fontFamily: 'var(--font-main)',
+      fontSize: '0.8rem',
+      color: '#555',
+      letterSpacing: '0.05em',
+    }}>
+      <span>© 2025 RD</span>
+      <div style={{ display: 'flex', gap: '2rem' }}>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" style={{ color: '#777', transition: 'color 0.3s' }}>GitHub</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: '#777', transition: 'color 0.3s' }}>LinkedIn</a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ color: '#777', transition: 'color 0.3s' }}>Twitter</a>
+      </div>
+      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{
+        background: 'none',
+        border: 'none',
+        color: '#555',
+        cursor: 'pointer',
+        fontSize: '0.8rem',
+        letterSpacing: '0.05em',
+        fontFamily: 'var(--font-main)',
+      }}>Back to top ↑</button>
     </div>
   </footer>
 );

@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+/* ============================================
+   TESTIMONIALS SECTION — Inette.co Inspired
+   Clean, minimal card layout
+   ============================================ */
 
 .testimonials-section {
     position: relative;
-    padding: 100px 4rem;
-    background: transparent;
+    padding: 8rem 4rem;
+    background: #050505;
 }
 
 .testimonials-section .testimonials-title,
-.testimonials-section .testimonials-subtitle,
-.testimonials-section .stat-item,
 .testimonials-section .testimonial-card {
     opacity: 0;
     transform: translateY(30px);
@@ -20,18 +21,6 @@
     transform: translateY(0);
 }
 
-.testimonials-section.visible .testimonials-subtitle {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.1s;
-}
-
-.testimonials-section.visible .stat-item {
-    opacity: 1;
-    transform: translateY(0);
-    animation: fadeInUp 0.6s ease forwards;
-}
-
 .testimonials-section.visible .testimonial-card {
     opacity: 1;
     transform: translateY(0);
@@ -39,14 +28,8 @@
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .testimonials-container {
@@ -54,93 +37,61 @@
     margin: 0 auto;
 }
 
-.testimonials-title {
-    font-size: clamp(3rem, 8vw, 5rem);
-    font-family: 'Bebas Neue', sans-serif;
-    text-transform: uppercase;
-    margin: 0 0 1.5rem 0;
-    line-height: 1.1;
-    color: #fff;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    text-align: center;
-}
-
-.testimonials-subtitle {
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    line-height: 1.7;
-    color: #b0b0b0;
-    font-weight: 400;
-    max-width: 700px;
-    margin: 0 auto 3rem;
-    text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-}
-
-.stats-container {
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
+.testimonials-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    align-items: end;
     margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.stat-item {
-    text-align: center;
-}
-
-.stat-value {
-    font-size: clamp(3rem, 6vw, 4rem);
-    font-family: 'Bebas Neue', sans-serif;
-    color: #bacbdb;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    font-size: 0.875rem;
-    color: #b0b0b0;
+.testimonials-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    color: #555;
+}
+
+.testimonials-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5rem);
+    margin: 0;
+    line-height: 1;
+    color: #f5f5f5;
+    font-weight: 400;
+    letter-spacing: -0.03em;
 }
 
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .testimonial-card {
-    background: #0d1929;
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid rgba(186, 203, 219, 0.1);
-    transition: all 0.3s ease;
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .testimonial-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(186, 203, 219, 0.3);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.testimonial-stars {
-    margin-bottom: 1rem;
-}
-
-.star {
-    color: #bacbdb;
-    font-size: 1.25rem;
-    margin-right: 2px;
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
 }
 
 .testimonial-text {
     font-size: 1rem;
     line-height: 1.7;
-    color: #d0d0d0;
-    margin-bottom: 1.5rem;
-    font-style: italic;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    color: #bbb;
+    margin: 0 0 2rem;
+    font-style: normal;
+    font-weight: 300;
+    font-family: var(--font-main);
 }
 
 .testimonial-author {
@@ -150,70 +101,61 @@
 }
 
 .author-avatar {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #bacbdb 0%, #8aa3b8 100%);
+    background: rgba(168, 85, 247, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #0d1929;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #80a0c4;
+    font-family: var(--font-main);
 }
 
 .author-name {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #f5f5f5;
+    font-family: var(--font-main);
 }
 
 .author-role {
-    font-size: 0.875rem;
-    color: #b0b0b0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 0.8rem;
+    color: #666;
+    font-family: var(--font-main);
 }
 
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
 @media (max-width: 1024px) {
-    .stats-container {
-        gap: 3rem;
+    .testimonials-header {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }
 
 @media (max-width: 768px) {
     .testimonials-section {
-        padding: 60px 1.5rem;
-    }
-
-    .testimonials-title {
-        font-size: clamp(2.5rem, 10vw, 3.5rem);
-    }
-
-    .testimonials-subtitle {
-        font-size: 0.95rem;
-        margin-bottom: 2rem;
-        padding: 0 0.5rem;
+        padding: 4rem 1.5rem;
     }
 
     .testimonials-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .stats-container {
-        flex-direction: column;
         gap: 1.5rem;
-        margin-bottom: 2.5rem;
     }
 
-    .stat-value {
-        font-size: clamp(2.5rem, 10vw, 3.5rem);
+    .testimonial-card {
+        padding: 2rem;
     }
+}
 
-    .stat-label {
-        font-size: 0.75rem;
+@media (max-width: 480px) {
+    .testimonials-section {
+        padding: 3rem 1rem;
     }
 
     .testimonial-card {
@@ -222,46 +164,5 @@
 
     .testimonial-text {
         font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .testimonials-section {
-        padding: 50px 1rem;
-    }
-
-    .testimonials-title {
-        font-size: clamp(2rem, 12vw, 3rem);
-    }
-
-    .testimonials-subtitle {
-        font-size: 0.875rem;
-    }
-
-    .stat-value {
-        font-size: clamp(2rem, 12vw, 3rem);
-    }
-
-    .testimonial-card {
-        padding: 1.25rem;
-    }
-
-    .testimonial-text {
-        font-size: 0.85rem;
-        margin-bottom: 1rem;
-    }
-
-    .author-avatar {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-
-    .author-name {
-        font-size: 0.9rem;
-    }
-
-    .author-role {
-        font-size: 0.75rem;
     }
 }

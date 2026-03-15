@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import './LoadingScreen.css';
+import DecryptedText from './DecryptedText';
 
 const LoadingScreen = ({ onLoadComplete }) => {
     const [progress, setProgress] = useState(0);
     const [isComplete, setIsComplete] = useState(false);
 
     useEffect(() => {
-        const duration = 2000;
+        const duration = 3500;
         const interval = 20;
         const steps = duration / interval;
         const increment = 100 / steps;
@@ -35,6 +36,19 @@ const LoadingScreen = ({ onLoadComplete }) => {
             <div className="loading-content">
                 <div className="loading-logo">
                     <span className="loading-name">RiyanshDiwan</span>
+                    <div className="loading-tagline">
+                        <DecryptedText
+                            text="Booting up creativity.exe"
+                            speed={40}
+                            maxIterations={15}
+                            sequential={true}
+                            revealDirection="start"
+                            characters="01"
+                            animateOn="view"
+                            className="revealed-char"
+                            encryptedClassName="encrypted-char"
+                        />
+                    </div>
                 </div>
                 <div className="loading-bar-container">
                     <div className="loading-bar" style={{ width: `${progress}%` }}></div>

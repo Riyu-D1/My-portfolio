@@ -1,9 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+/* ============================================
+   FEATURED PROJECTS — Inette.co Inspired
+   Large editorial project cards
+   ============================================ */
 
 .featured-projects-section {
     position: relative;
-    padding: 100px 4rem;
-    background: transparent;
+    padding: 10rem 4rem;
+    background: #050505;
 }
 
 .projects-container {
@@ -11,231 +14,223 @@
     margin: 0 auto;
 }
 
-.projects-title {
-    font-size: clamp(3rem, 8vw, 5rem);
-    font-family: 'Bebas Neue', sans-serif;
-    text-transform: uppercase;
-    margin: 0 0 1.5rem 0;
-    line-height: 1.1;
-    color: #fff;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    text-align: center;
+/* Headline */
+.projects-headline {
+    margin-bottom: 5rem;
 }
 
-.projects-subtitle {
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    line-height: 1.7;
-    color: #b0b0b0;
-    font-weight: 400;
-    max-width: 700px;
-    margin: 0 auto 4rem;
-    text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.project-card {
-    position: relative;
-    background: #0d1929;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid rgba(186, 203, 219, 0.1);
-    transition: all 0.4s ease;
-    cursor: pointer;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(186, 203, 219, 0.3);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-}
-
-.project-image {
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+.projects-headline-overflow {
     overflow: hidden;
 }
 
-.project-image-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--card-color) 0%, rgba(0,0,0,0.5) 100%);
-}
-
-.project-initial {
-    font-size: 5rem;
-    font-family: 'Bebas Neue', sans-serif;
-    color: rgba(255, 255, 255, 0.2);
-}
-
-.project-content {
-    padding: 2rem;
-}
-
-.project-category {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #bacbdb;
-    font-weight: 600;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-}
-
-.project-name {
-    font-size: 1.5rem;
-    font-family: 'Bebas Neue', sans-serif;
-    color: #fff;
-    margin: 0.5rem 0 1rem;
-    letter-spacing: 0.02em;
-}
-
-.project-description {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #b0b0b0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+.projects-headline-line {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #f5f5f5;
     margin: 0;
 }
 
-.project-hover-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(13, 25, 41, 0.95);
+/* Projects grid */
+.projects-grid-inette {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.project-card-inette {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card-inette.featured {
+    grid-column: 1 / -1;
+}
+
+.project-card-inette:hover {
+    transform: translateY(-8px);
+}
+
+.project-image-inette {
+    width: 100%;
+    aspect-ratio: 16/10;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+}
+
+.project-card-inette.featured .project-image-inette {
+    aspect-ratio: 21/9;
+}
+
+.project-initial-inette {
+    font-family: var(--font-display);
+    font-size: 8rem;
+    opacity: 0.15;
+    font-weight: 400;
+    transition: all 0.5s ease;
+}
+
+.project-card-inette:hover .project-initial-inette {
+    opacity: 0.3;
+    transform: scale(1.1);
+}
+
+.project-view-circle {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transform: scale(0.8);
+    transition: all 0.4s ease;
 }
 
-.project-card:hover .project-hover-overlay {
+.project-card-inette:hover .project-view-circle {
     opacity: 1;
+    transform: scale(1);
 }
 
-.view-project {
-    font-size: 1.25rem;
-    font-family: 'Bebas Neue', sans-serif;
-    color: #bacbdb;
-    letter-spacing: 0.1em;
-    border: 2px solid #bacbdb;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    transition: all 0.3s ease;
+/* Project info */
+.project-info-inette {
+    padding: 1.5rem 0.5rem 0;
 }
 
-.project-card:hover .view-project:hover {
-    background: #bacbdb;
-    color: #0d1929;
+.project-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
 }
 
-.projects-cta {
-    text-align: center;
-}
-
-.browse-all-btn {
-    background: transparent;
-    border: 2px solid #bacbdb;
-    color: #bacbdb;
-    padding: 1rem 3rem;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+.project-category-inette {
+    font-size: 0.75rem;
     text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #666;
+    font-weight: 400;
 }
 
-.browse-all-btn:hover {
-    background: #bacbdb;
-    color: #000;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(186, 203, 219, 0.3);
+.project-year {
+    font-size: 0.75rem;
+    color: #555;
+    letter-spacing: 0.1em;
 }
+
+.project-title-inette {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: #f5f5f5;
+    margin: 0 0 0.75rem;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+}
+
+.project-desc-inette {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #777;
+    font-weight: 300;
+    margin: 0;
+    max-width: 500px;
+}
+
+/* CTA */
+.projects-cta-inette {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.projects-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 100px;
+    color: #ccc;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: var(--font-main);
+}
+
+.projects-view-all:hover {
+    background: #f5f5f5;
+    color: #050505;
+    border-color: #f5f5f5;
+}
+
+.projects-view-all svg {
+    transition: transform 0.3s ease;
+}
+
+.projects-view-all:hover svg {
+    transform: translate(3px, -3px);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 
 @media (max-width: 1024px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .projects-grid-inette {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card-inette.featured .project-image-inette {
+        aspect-ratio: 16/10;
     }
 }
 
 @media (max-width: 768px) {
     .featured-projects-section {
-        padding: 60px 1.5rem;
+        padding: 4rem 1.5rem;
     }
 
-    .projects-title {
-        font-size: clamp(2.5rem, 10vw, 3.5rem);
+    .projects-headline {
+        margin-bottom: 3rem;
     }
 
-    .projects-subtitle {
-        font-size: 0.95rem;
-        margin-bottom: 2.5rem;
-        padding: 0 0.5rem;
+    .project-image-inette {
+        border-radius: 8px;
     }
 
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .project-initial-inette {
+        font-size: 5rem;
     }
 
-    .project-image {
-        height: 200px;
-    }
-
-    .project-content {
-        padding: 1.5rem;
-    }
-
-    .project-name {
-        font-size: 1.25rem;
-    }
-
-    .browse-all-btn {
-        padding: 0.875rem 2rem;
-        font-size: 0.9rem;
+    .project-title-inette {
+        font-size: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .featured-projects-section {
-        padding: 50px 1rem;
+        padding: 3rem 1rem;
     }
 
-    .projects-title {
-        font-size: clamp(2rem, 12vw, 3rem);
-    }
-
-    .projects-subtitle {
-        font-size: 0.875rem;
-    }
-
-    .project-image {
-        height: 180px;
-    }
-
-    .project-content {
-        padding: 1.25rem;
-    }
-
-    .project-description {
-        font-size: 0.85rem;
+    .projects-grid-inette {
+        gap: 1.5rem;
     }
 }

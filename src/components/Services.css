@@ -1,9 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+/* ============================================
+   SERVICES SECTION — Inette.co Inspired
+   Expandable list / accordion style
+   ============================================ */
 
 .services-section {
     position: relative;
-    padding: 100px 4rem;
-    background: transparent;
+    padding: 10rem 4rem;
+    background: #050505;
 }
 
 .services-container {
@@ -11,156 +14,171 @@
     margin: 0 auto;
 }
 
-.services-title {
-    font-size: clamp(3rem, 8vw, 5rem);
-    font-family: 'Bebas Neue', sans-serif;
-    text-transform: uppercase;
-    margin: 0 0 1.5rem 0;
-    line-height: 1.1;
-    color: #fff;
+/* Headline */
+.services-headline {
+    margin-bottom: 5rem;
+}
+
+.services-headline-overflow {
+    overflow: hidden;
+}
+
+.services-headline-line {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 7rem);
     font-weight: 400;
-    letter-spacing: 0.02em;
-    text-align: center;
-}
-
-.services-subtitle {
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    line-height: 1.7;
-    color: #b0b0b0;
-    font-weight: 400;
-    max-width: 600px;
-    margin: 0 auto 4rem;
-    text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-}
-
-.service-card {
-    background: #0d1929;
-    border-radius: 20px;
-    padding: 2rem;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(186, 203, 219, 0.1);
-}
-
-.service-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(186, 203, 219, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.service-header {
-    margin-bottom: 1.5rem;
-}
-
-.service-number {
-    font-size: 3rem;
-    font-family: 'Bebas Neue', sans-serif;
-    color: #bacbdb;
     line-height: 1;
-    display: block;
-    margin-bottom: 1rem;
-}
-
-.service-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #fff;
-    letter-spacing: 0.05em;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    letter-spacing: -0.03em;
+    color: #f5f5f5;
     margin: 0;
 }
 
-.service-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.service-item {
-    font-size: 0.9rem;
-    color: #b0b0b0;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+/* Service rows */
+.services-list {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+}
+
+.service-row {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2rem 0;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-row:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.service-row-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.service-num {
+    font-family: var(--font-main);
+    font-size: 0.8rem;
+    color: #555;
+    letter-spacing: 0.1em;
+    min-width: 40px;
+}
+
+.service-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    font-weight: 400;
+    color: #f5f5f5;
+    margin: 0;
+    letter-spacing: -0.02em;
+    flex: 1;
+    transition: color 0.3s ease;
+}
+
+.service-row:hover .service-name {
+    color: #80a0c4;
+}
+
+.service-arrow {
+    color: #555;
+    transition: all 0.4s ease;
+    transform: rotate(0deg);
+}
+
+.service-row:hover .service-arrow {
+    color: #f5f5f5;
+    transform: rotate(0deg) translate(3px, -3px);
+}
+
+/* Expandable content */
+.service-row-expand {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                padding 0.4s ease;
+    opacity: 0;
+    padding: 0 0 0 calc(40px + 2rem);
+}
+
+.service-row.active .service-row-expand {
+    max-height: 300px;
+    opacity: 1;
+    padding: 1.5rem 0 0.5rem calc(40px + 2rem);
+}
+
+.service-row-desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #888;
+    font-weight: 300;
+    margin: 0 0 1.5rem 0;
+    max-width: 600px;
+}
+
+.service-row-tags {
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.75rem;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
 
-.service-item:last-child {
-    border-bottom: none;
+.service-tag {
+    padding: 0.5rem 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    color: #999;
+    font-weight: 300;
+    transition: all 0.3s ease;
 }
 
-.service-icon {
-    color: #bacbdb;
-    font-size: 0.75rem;
-    margin-top: 3px;
+.service-row.active .service-tag {
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
-@media (max-width: 1200px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 
 @media (max-width: 768px) {
     .services-section {
-        padding: 60px 1.5rem;
+        padding: 4rem 1.5rem;
     }
 
-    .services-title {
-        font-size: clamp(2.5rem, 10vw, 3.5rem);
+    .services-headline {
+        margin-bottom: 3rem;
     }
 
-    .services-subtitle {
-        font-size: 0.95rem;
-        margin-bottom: 2.5rem;
-        padding: 0 0.5rem;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
+    .service-row-header {
         gap: 1rem;
     }
 
-    .service-card {
-        padding: 1.5rem;
+    .service-num {
+        min-width: 30px;
+        font-size: 0.75rem;
     }
 
-    .service-number {
-        font-size: 2.5rem;
+    .service-row-expand,
+    .service-row.active .service-row-expand {
+        padding-left: calc(30px + 1rem);
     }
 
-    .service-title {
-        font-size: 1.1rem;
+    .service-row-tags {
+        gap: 0.5rem;
+    }
+
+    .service-tag {
+        font-size: 0.75rem;
+        padding: 0.4rem 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .services-section {
-        padding: 50px 1rem;
+        padding: 3rem 1rem;
     }
 
-    .services-title {
-        font-size: clamp(2rem, 12vw, 3rem);
-    }
-
-    .services-subtitle {
-        font-size: 0.875rem;
-    }
-
-    .service-card {
-        padding: 1.25rem;
-    }
-
-    .service-item {
-        font-size: 0.85rem;
+    .service-row {
+        padding: 1.5rem 0;
     }
 }

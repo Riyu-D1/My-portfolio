@@ -6,7 +6,6 @@ import FeaturedProjects from '../components/FeaturedProjects';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import ContactForm from '../components/ContactForm';
-import FlippingCard from '../components/FlippingCard';
 import LoadingScreen from '../components/LoadingScreen';
 
 const Home = () => {
@@ -30,7 +29,6 @@ const Home = () => {
     return (
         <>
             {isLoading && <LoadingScreen onLoadComplete={handleLoadComplete} />}
-            <FlippingCard />
             <Hero />
             <About />
             <Services />

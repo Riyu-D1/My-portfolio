@@ -1,254 +1,210 @@
+/* ============================================
+   ABOUT SECTION — Inette.co Inspired
+   Editorial, asymmetric, clean layout
+   ============================================ */
+
 .about-section {
     position: relative;
-    min-height: 100vh;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #000;
-    color: white;
-    padding: 4rem 2rem;
-}
-
-/* Mobile card - hidden on desktop */
-.about-mobile-card {
-    display: none;
+    background-color: #050505;
+    color: #f5f5f5;
+    padding: 10rem 4rem;
 }
 
 .about-container {
     max-width: 1400px;
     width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+/* Large editorial headline */
+.about-headline {
+    margin-bottom: 0;
+}
+
+.about-headline-overflow {
+    overflow: hidden;
+}
+
+.about-headline-line {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #f5f5f5;
+    margin: 0;
+}
+
+.about-headline-line.accent {
+    color: #80a0c4;
+}
+
+/* Description block */
+.about-desc-block {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-desc-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #666;
+    padding-top: 0.3rem;
+}
+
+.about-desc-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    position: relative;
-    z-index: 1;
+    gap: 3rem;
 }
 
-.about-left {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.about-title {
-    font-size: clamp(3rem, 6vw, 5rem);
-    font-weight: 700;
-    text-transform: uppercase;
-    margin: 0;
-    letter-spacing: 0.02em;
-}
-
-.about-description {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: #ccc;
-    max-width: 500px;
-    margin: 0;
-}
-
-.about-experience {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.about-experience-number {
-    font-size: 8rem;
-    font-weight: 700;
-    line-height: 1;
-    color: #4a90e2;
-    margin: 0;
-}
-
-.about-experience-label {
+.about-desc-text {
     font-size: 1rem;
-    color: #ccc;
-    text-transform: capitalize;
-}
-
-.about-contact {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.about-contact-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.about-contact-label {
-    font-size: 0.875rem;
+    line-height: 1.8;
     color: #888;
+    font-weight: 300;
+    margin: 0;
 }
 
-.about-contact-value {
-    font-size: 1rem;
-    color: #e0e0e0;
+/* Stats */
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 3rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.about-socials {
+.about-stat {
     display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.about-stat-number {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1;
+    color: #f5f5f5;
+}
+
+.about-stat-label {
+    font-size: 0.8rem;
+    color: #666;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+/* Capabilities */
+.about-capabilities {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+}
+
+.about-cap-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #666;
+    padding-top: 0.3rem;
+}
+
+.about-cap-list {
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
-.about-social-link {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #1a1a1a;
-    border-radius: 8px;
-    color: #e0e0e0;
+.about-capability {
+    padding: 0.75rem 1.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 100px;
+    font-size: 0.85rem;
+    color: #ccc;
+    font-weight: 300;
+    letter-spacing: 0.03em;
     transition: all 0.3s ease;
 }
 
-.about-social-link:hover {
-    background-color: #2a2a2a;
-    color: #fff;
-    transform: translateY(-2px);
+.about-capability:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #f5f5f5;
+    background: rgba(255, 255, 255, 0.04);
 }
 
-.about-story-btn {
-    width: fit-content;
-    padding: 1rem 2.5rem;
-    background-color: transparent;
-    border: 1px solid #e0e0e0;
-    border-radius: 50px;
-    color: #e0e0e0;
-    font-size: 1rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.about-story-btn:hover {
-    background-color: #fff;
-    color: #000;
-    border-color: #fff;
-}
-
-.about-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.about-image-wrapper {
-    width: 100%;
-    max-width: 500px;
-    aspect-ratio: 3/4;
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-}
-
-.about-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 
 @media (max-width: 1024px) {
-    .about-container {
+    .about-section {
+        padding: 6rem 2.5rem;
+    }
+
+    .about-desc-block {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 1.5rem;
     }
 
-    .about-experience-number {
-        font-size: 6rem;
-    }
-
-    .about-right {
-        order: -1;
-    }
-
-    .about-image-wrapper {
-        max-width: 400px;
+    .about-capabilities {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 
 @media (max-width: 768px) {
     .about-section {
-        padding: 3rem 1.5rem;
-        min-height: auto;
+        padding: 4rem 1.5rem;
     }
 
-    /* Show mobile card */
-    .about-mobile-card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin-bottom: 2rem;
+    .about-container {
+        gap: 4rem;
     }
 
-    .about-mobile-card img {
-        width: 200px;
-        height: 280px;
-        object-fit: cover;
-        border-radius: 16px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    .about-headline-line {
+        font-size: clamp(2.2rem, 10vw, 3.5rem);
     }
 
-    .about-title {
-        font-size: 2.5rem;
+    .about-desc-columns {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 2rem;
         text-align: center;
     }
 
-    .about-description {
-        font-size: 1rem;
-        text-align: center;
-    }
-
-    .about-experience {
+    .about-stat {
         align-items: center;
     }
 
-    .about-experience-number {
-        font-size: 5rem;
-    }
-
-    .about-contact {
-        align-items: center;
-    }
-
-    .about-socials {
+    .about-cap-list {
         justify-content: center;
-    }
-
-    .about-story-btn {
-        align-self: center;
-    }
-
-    .about-image-wrapper {
-        max-width: 100%;
     }
 }
 
 @media (max-width: 480px) {
     .about-section {
-        padding: 2rem 1rem;
+        padding: 3rem 1rem;
     }
 
-    .about-mobile-card img {
-        width: 180px;
-        height: 250px;
-    }
-
-    .about-title {
-        font-size: 2rem;
-    }
-
-    .about-experience-number {
-        font-size: 4rem;
+    .about-headline-line {
+        font-size: clamp(2rem, 12vw, 3rem);
     }
 }

@@ -2,13 +2,26 @@ import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Beams from '../components/Beams';
-import MagicBento from '../components/MagicBento';
-import profileImg from '../assets/memoji.png';
+import FlowingMenu from '../components/FlowingMenu';
+import PixelTransition from '../components/PixelTransition';
+import memojiImg from '../assets/memoji.png';
+import photoImg from '../assets/profile.png';
+import productDesignImg from '../assets/product-design.png';
+import codeImg from '../assets/code.png';
+import photography1 from '../assets/photography1.jpg';
+import photography2 from '../assets/photography2.jpg';
+import photography3 from '../assets/photography3.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutPage = () => {
     const containerRef = useRef(null);
+    
+    const demoItems = [
+        { link: '#', text: 'Product Design', image: productDesignImg, description: 'My product design work focuses on creating practical, well-thought-out physical products. I enjoy taking an idea from concept to prototype, using tools like 3D modeling and 3D printing to test and refine designs. My goal is to build products that are functional, efficient, and thoughtfully designed, while constantly experimenting with new materials, forms, and ways to improve how things are made and used.' },
+        { link: '#', text: 'Code', image: codeImg, description: 'My work in code focuses on building clean, efficient, and purposeful digital solutions. I enjoy turning ideas into functional tools by designing and developing software that is reliable, scalable, and easy to use. From experimenting with new technologies to refining the details of how a system works, I approach coding as both a technical challenge and a creative process.' },
+        { link: '#', text: 'Photography', image: [photography1, photography2, photography3], description: 'Photography is a creative outlet where I enjoy capturing unique perspectives and moments. I focus on composition, lighting, and detail to create images that feel natural and expressive. It’s a way for me to explore creativity outside of technology while still applying the same attention to detail and design thinking.' }
+    ];
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -37,61 +50,6 @@ const AboutPage = () => {
                 delay: 0.7
             });
 
-            // Profile card animation
-            gsap.from('.profile-card', {
-                y: 100,
-                opacity: 0,
-                duration: 1.2,
-                ease: "power3.out",
-                delay: 0.9
-            });
-
-            // Section headings with scroll trigger
-            gsap.utils.toArray('.section-heading').forEach((heading, index) => {
-                gsap.from(heading, {
-                    scrollTrigger: {
-                        trigger: heading,
-                        start: "top 80%",
-                        end: "top 50%",
-                        toggleActions: "play none none reverse"
-                    },
-                    x: -50,
-                    opacity: 0,
-                    duration: 0.8,
-                    ease: "power3.out"
-                });
-            });
-
-            // Section text with scroll trigger
-            gsap.utils.toArray('.section-text').forEach((text, index) => {
-                gsap.from(text, {
-                    scrollTrigger: {
-                        trigger: text,
-                        start: "top 85%",
-                        end: "top 55%",
-                        toggleActions: "play none none reverse"
-                    },
-                    y: 30,
-                    opacity: 0,
-                    duration: 0.8,
-                    ease: "power3.out",
-                    delay: 0.2
-                });
-            });
-
-            // Closing text animation
-            gsap.from('.closing-text', {
-                scrollTrigger: {
-                    trigger: '.closing-text',
-                    start: "top 80%",
-                    toggleActions: "play none none reverse"
-                },
-                y: 30,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out"
-            });
-
             // Journey section animation
             gsap.from('.journey-title', {
                 scrollTrigger: {
@@ -112,32 +70,6 @@ const AboutPage = () => {
                     toggleActions: "play none none reverse"
                 },
                 y: 40,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out",
-                delay: 0.3
-            });
-
-            // Skills section animation
-            gsap.from('.skills-title', {
-                scrollTrigger: {
-                    trigger: '.skills-title',
-                    start: "top 80%",
-                    toggleActions: "play none none reverse"
-                },
-                scale: 0.9,
-                opacity: 0,
-                duration: 1.2,
-                ease: "power3.out"
-            });
-
-            gsap.from('.bento-container', {
-                scrollTrigger: {
-                    trigger: '.bento-container',
-                    start: "top 85%",
-                    toggleActions: "play none none reverse"
-                },
-                y: 50,
                 opacity: 0,
                 duration: 1,
                 ease: "power3.out",
@@ -167,7 +99,7 @@ const AboutPage = () => {
                         <h1 className="about-main-title">ABOUT ME</h1>
                         <h2 className="about-name">RIYANSH DIWAN</h2>
                         <p className="about-intro">
-                            I'm a young entrepreneur and tech enthusiast with a passion for exploring the future of AI, design, and digital tools. I love building smart, impactful projects that solve real problems — from AI-powered platforms to productivity tools that empower students and creators. I'm always learning, experimenting, and pushing ideas forward.
+                            I'm a young entrepreneur and tech enthusiast passionate about exploring the future of AI, design, and digital tools. I enjoy building smart, impactful projects that solve real problems — from AI-powered platforms to productivity tools that help students and creators work better. Alongside software development, I experiment with hardware and 3D printing to bring ideas into the physical world, combining digital design with real-world prototypes. I’m constantly learning, experimenting, and pushing ideas forward, always looking for new ways technology can make life simpler, smarter, and more creative. I also enjoy photography as a way to capture perspective and creativity outside of tech.
                         </p>
                     </div>
                 </div>
@@ -178,30 +110,43 @@ const AboutPage = () => {
                         My journey started when I was first introduced to web development and AI — two fields that instantly captured my curiosity. From experimenting with coding and building simple projects, my passion grew rapidly. Since then, I've been driven to explore the endless possibilities technology offers, constantly learning and creating innovative solutions along the way.
                     </p>
                 </div>
-                    
-                <div className="skills-section">
-                    <h2 className="skills-title">DESIGN WITH STRATEGY AND CREATIVITY</h2>
-                    <p className="skills-subtitle">My process blends strategy and creativity to address challenges, craft solutions, and deliver designs that effectively communicate your message.</p>
-                    <div className="bento-container">
-                        <MagicBento 
-                            textAutoHide={true}
-                            enableStars={true}
-                            enableSpotlight={true}
-                            enableBorderGlow={true}
-                            enableTilt={true}
-                            enableMagnetism={true}
-                            clickEffect={true}
-                            spotlightRadius={300}
-                            particleCount={12}
-                            glowColor="186, 203, 219"
-                        />
-                    </div>
+
+                <div className="skills-section" style={{ position: 'relative', margin: '4rem 0' }}>
+                    <FlowingMenu items={demoItems}
+                        speed={15}
+                        textColor="#ffffff"
+                        bgColor="#0f1115"
+                        marqueeBgColor="#ffffff"
+                        marqueeTextColor="#060010"
+                        borderColor="#ffffff"
+                    />
                 </div>
 
                 <div className="contact-section">
                     <div className="contact-container">
                         <div className="contact-image-wrapper">
-                            <img src={profileImg} alt="Riyansh Diwan" className="contact-image" />
+                            <PixelTransition
+                                firstContent={
+                                    <img
+                                        src={memojiImg}
+                                        alt="Riyansh Diwan Memoji"
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', backgroundColor: '#f5f5f5' }}
+                                    />
+                                }
+                                secondContent={
+                                    <img
+                                        src={photoImg}
+                                        alt="Riyansh Diwan"
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center' }}
+                                    />
+                                }
+                                gridSize={12}
+                                pixelColor="#80a0c4"
+                                once={false}
+                                animationStepDuration={0.4}
+                                className="contact-pixel-image"
+                                aspectRatio="120%"
+                            />
                             <div className="wave-icon">👋</div>
                         </div>
                         
@@ -464,6 +409,23 @@ const AboutPage = () => {
                     border-radius: 20px;
                     object-fit: cover;
                 }
+
+                .contact-pixel-image.pixelated-image-card {
+                    width: 100%;
+                    max-width: 500px;
+                    background-color: transparent;
+                    border: none;
+                    border-radius: 20px;
+                    transition: transform 0.4s ease;
+                }
+
+                .contact-pixel-image.pixelated-image-card:hover {
+                    transform: scale(1.02);
+                }
+
+                .contact-pixel-image.pixelated-image-card:focus {
+                    outline: none;
+                }
                 
                 .wave-icon {
                     position: absolute;
@@ -471,13 +433,14 @@ const AboutPage = () => {
                     left: -30px;
                     width: 80px;
                     height: 80px;
-                    background: #bacbdb;
+                    background: #80a0c4;
                     border-radius: 50%;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     font-size: 2.5rem;
-                    box-shadow: 0 4px 20px rgba(186, 203, 219, 0.3);
+                    box-shadow: 0 4px 20px rgba(128, 160, 196, 0.3);
+                    z-index: 10;
                 }
                 
                 .contact-form-wrapper {
