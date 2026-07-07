@@ -94,12 +94,12 @@ const Hero = () => {
                     <div className="hero-title-line-wrapper hero-title-line">
                         <TextPressure
                             text="CREATIVE"
-                            flex={false}
+                            flex
                             alpha={false}
                             stroke={false}
-                            width={true}
-                            weight={true}
-                            italic={false}
+                            width
+                            weight
+                            italic
                             textColor="#f5f5f5"
                             minFontSize={48}
                         />
@@ -107,12 +107,12 @@ const Hero = () => {
                     <div className="hero-title-line-wrapper hero-title-line">
                         <TextPressure
                             text="DESIGNER"
-                            flex={false}
+                            flex
                             alpha={false}
                             stroke={false}
-                            width={true}
-                            weight={true}
-                            italic={false}
+                            width
+                            weight
+                            italic
                             textColor="#f5f5f5"
                             minFontSize={48}
                         />
