@@ -187,4 +187,18 @@ const CHROME_CSS = `
   align-items: baseline;
   gap: 10px;
 }
+
+/* ---- mobile: strip chrome to corners + meter + REC + mode ----
+   the text clusters collide with beat content at small widths */
+@media (max-width: 720px) {
+  .unit-chrome__cluster--tl,
+  .unit-chrome__cluster--bl,
+  .unit-chrome__cluster--tr { display: none; }
+  .unit-chrome__cluster--br { bottom: 20px; right: 16px; }
+  .unit-chrome__corner--tl { top: 56px; left: 8px; }
+  .unit-chrome__corner--tr { top: 56px; right: 8px; }
+  .unit-chrome__corner--bl { bottom: 8px; left: 8px; }
+  .unit-chrome__corner--br { bottom: 8px; right: 8px; }
+  .unit-chrome__segs { left: 8px; }
+}
 `;

@@ -100,10 +100,12 @@ function RigUpdater({ modelRef, screen }) {
     const t = state.clock.elapsedTime
     const cam = state.camera
 
-    // per-frame smoothing on top of the GSAP scrub
+    // per-frame smoothing on top of the GSAP scrub —
+    // on portrait screens the camera pulls back so the unit fits
+    const zoom = cam.aspect < 1 ? 1 + (1 - cam.aspect) * 0.85 : 1
     cam.position.x += (rig.px - cam.position.x) * 0.12
     cam.position.y += (rig.py - cam.position.y) * 0.12
-    cam.position.z += (rig.pz - cam.position.z) * 0.12
+    cam.position.z += (rig.pz * zoom - cam.position.z) * 0.12
     cam.lookAt(rig.tx, rig.ty, rig.tz)
 
     if (modelRef.current) {

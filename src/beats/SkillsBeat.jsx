@@ -206,11 +206,14 @@ export default function SkillsBeat() {
         }
 
         @media (max-width: 560px) {
-          .beat--telemetry .tele-grid { gap: 12px; }
-          .beat--telemetry .tele-mod { padding: 12px; gap: 10px; }
-          .beat--telemetry .tele-val { font-size: 18px; }
+          .beat--telemetry .tele-body { padding: 8px 0; gap: 18px; }
+          .beat--telemetry .tele-grid { gap: 10px; }
+          .beat--telemetry .tele-mod { padding: 10px; gap: 9px; }
+          .beat--telemetry .tele-val { font-size: 17px; }
           .beat--telemetry .tele-hero-num { font-size: clamp(56px, 17vw, 96px); }
           .beat--telemetry .tele-subs { gap: 4px 8px; }
+          .beat--telemetry .tele-subs li { font-size: 9px; }
+          .beat--telemetry .beat-bottomline { display: none; }
         }
       `}</style>
 

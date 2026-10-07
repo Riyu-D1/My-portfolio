@@ -96,6 +96,20 @@
   .beat .rv { opacity: 1 !important; transform: none !important; }
 }
 
+/* ------- mobile: clear the fixed header, clip overflow ------- */
+/* header is fixed 52px — beats must pad past it whenever --pad < 52px */
+@media (max-width: 1100px) {
+  .beat { padding-top: 72px; }
+}
 @media (max-width: 720px) {
-  .beat { padding: 18px; }
+  .beat {
+    padding: 66px 16px 14px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 560px) {
+  /* topline can't fit chapter + right tag at 320–400px */
+  .beat-topline > .corner-tag,
+  .beat-topline > .mod-sel { display: none; }
 }

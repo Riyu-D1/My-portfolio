@@ -192,6 +192,35 @@ export default function ContactBeat() {
           .beat--transmit .tx-panel { width: 100%; }
         }
 
+        /* phones — headline + full form can't fit one viewport:
+           compress hard; if it still overflows, the body scrolls
+           internally (data-lenis-prevent keeps Lenis out of it) */
+        @media (max-width: 720px) {
+          .beat--transmit .tx-body {
+            overflow-y: auto;
+            pointer-events: auto;
+            gap: 14px;
+          }
+          .beat--transmit .tx-headline { font-size: clamp(34px, 10vw, 56px); }
+          .beat--transmit .tx-lines {
+            margin-top: 10px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 6px 14px;
+            font-size: 10px;
+          }
+          .beat--transmit .tx-sig { margin-top: 10px; }
+          .beat--transmit .tx-panel { padding: 14px; gap: 11px; }
+          .beat--transmit .tx-panel-head { padding-bottom: 10px; }
+          .beat--transmit .form-field { gap: 6px; }
+          .beat--transmit input,
+          .beat--transmit textarea { padding: 8px 10px; font-size: 12px; }
+          .beat--transmit textarea { min-height: 56px; }
+          .beat--transmit .tx-seg { padding: 7px 10px; font-size: 9px; }
+          .beat--transmit .tx-submit { padding: 11px 14px; }
+          .beat--transmit .beat-bottomline { display: none; }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .beat--transmit .sig-dot { animation: none; }
         }
@@ -205,7 +234,7 @@ export default function ContactBeat() {
         <span className="corner-tag">UPLINK // TX-05</span>
       </header>
 
-      <div className="tx-body">
+      <div className="tx-body" data-lenis-prevent>
         <div className="tx-left">
           <h2 className="doto tx-headline rv">TRANSMIT</h2>
           <ul className="tx-lines rv rv-1">

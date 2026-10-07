@@ -48,6 +48,10 @@ export default function Marquee({ items = [], className = '' }) {
           from { transform: translateX(0); }
           to   { transform: translateX(-50%); }
         }
+        @media (max-width: 720px) {
+          .mq { height: 34px; }
+          .mq-item { font-size: 10px; }
+        }
         @media (prefers-reduced-motion: reduce) {
           .mq-track { animation-play-state: paused; }
         }

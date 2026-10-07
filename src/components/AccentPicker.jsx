@@ -129,8 +129,34 @@ export default function AccentPicker() {
           opacity: 0;
         }
 
+        /* phones — horizontal row pinned above the REC/% cluster */
+        @media (max-width: 720px) {
+          .accent-rail {
+            top: auto;
+            right: 16px;
+            bottom: 64px;
+            transform: none;
+            flex-direction: row;
+            gap: 8px;
+          }
+          .accent-rail__label {
+            writing-mode: horizontal-tb;
+            margin-bottom: 0;
+            margin-right: 2px;
+            align-self: center;
+          }
+          .accent-swatch__tick {
+            left: 50%;
+            top: -8px;
+            width: 10px;
+            height: 3px;
+            transform: translateX(-50%) scaleX(0);
+          }
+          .accent-swatch.is-on .accent-swatch__tick {
+            transform: translateX(-50%) scaleX(1);
+          }
+        }
         @media (max-width: 560px) {
-          .accent-rail { right: 8px; gap: 8px; }
           .accent-rail__label { display: none; }
         }
 

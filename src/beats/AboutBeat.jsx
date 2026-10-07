@@ -148,6 +148,21 @@ export default function AboutBeat() {
           }
         }
 
+        /* phones — compress spec + log so both fit the viewport */
+        @media (max-width: 720px) {
+          .beat--diagnostics .diag-body {
+            gap: 24px;
+            justify-content: flex-end;
+            padding-top: 0;
+          }
+          .beat--diagnostics .diag-spec { max-width: 100%; }
+          .beat--diagnostics .diag-spec-head { margin-bottom: 8px; }
+          .beat--diagnostics .spec-row { padding: 6px 0; }
+          .beat--diagnostics .diag-log { padding-top: 12px; }
+          .beat--diagnostics .diag-log-line { font-size: 12px; line-height: 1.75; }
+          .beat--diagnostics.is-live .diag-ghost { opacity: 0.04; }
+        }
+
         /* ---------- reduced motion: static, still visible ---------- */
         @media (prefers-reduced-motion: reduce) {
           .beat--diagnostics .diag-ghost {
