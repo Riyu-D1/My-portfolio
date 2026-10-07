@@ -1,4 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars -- false positive: motion.div used in JSX below
 import { AnimatePresence, motion } from 'framer-motion';
 import Layout from './components/Layout';
 import Header from './components/Header';
@@ -7,34 +8,32 @@ import AboutPage from './pages/AboutPage';
 
 const Footer = () => (
   <footer style={{
-    padding: '3rem 4rem',
-    borderTop: '1px solid rgba(255,255,255,0.06)',
-    background: '#050505',
+    borderTop: '1px solid var(--border)',
+    background: 'var(--black)',
+    padding: '2rem var(--pad)',
+    fontFamily: 'var(--font-mono)',
   }}>
     <div className="container" style={{
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      fontFamily: 'var(--font-main)',
-      fontSize: '0.8rem',
-      color: '#555',
-      letterSpacing: '0.05em',
+      gap: '1.5rem',
+      flexWrap: 'wrap',
     }}>
-      <span>© 2025 RD</span>
-      <div style={{ display: 'flex', gap: '2rem' }}>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" style={{ color: '#777', transition: 'color 0.3s' }}>GitHub</a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: '#777', transition: 'color 0.3s' }}>LinkedIn</a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ color: '#777', transition: 'color 0.3s' }}>Twitter</a>
+      <span className="mono-label">© 2025 RIYANSH DIWAN</span>
+      <span className="mono-label mono-label--dim">UNIT_01 · SYSTEM NOMINAL</span>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <a href="#" className="mono-label pressable">GITHUB</a>
+        <a href="#" className="mono-label pressable">LINKEDIN</a>
+        <a href="#" className="mono-label pressable">X</a>
+        <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="mono-label pressable" style={{
+          background: 'none',
+          border: 'none',
+          padding: 0,
+          cursor: 'pointer',
+          fontFamily: 'var(--font-mono)',
+        }}>[ TOP ]</button>
       </div>
-      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{
-        background: 'none',
-        border: 'none',
-        color: '#555',
-        cursor: 'pointer',
-        fontSize: '0.8rem',
-        letterSpacing: '0.05em',
-        fontFamily: 'var(--font-main)',
-      }}>Back to top ↑</button>
     </div>
   </footer>
 );

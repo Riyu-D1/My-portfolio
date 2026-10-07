@@ -19,6 +19,9 @@ const Layout = ({ children }) => {
       touchMultiplier: 2,
     });
 
+    // expose for scrollRig.scrollToBeat + boot scroll-lock
+    window.__unit = { lenis };
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);

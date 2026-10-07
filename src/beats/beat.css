@@ -1,0 +1,101 @@
+/* ============================================================
+   Beat overlays — the DOM half of the scroll cinema.
+   Each .beat is an absolute full-viewport layer inside
+   .overlay-stack (position: fixed). The master GSAP timeline
+   owns visibility: it tweens autoAlpha on .beat--X.
+   Beats must not run their own scroll animations — ambient/
+   idle animations inside are fine. pointer-events are off by
+   default; re-enable per interactive element.
+   ============================================================ */
+
+.overlay-stack {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.beat {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  padding: var(--pad);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* interactive children opt back in */
+.beat a, .beat button, .beat input, .beat textarea,
+.beat select, .beat label, .beat .interact {
+  pointer-events: auto;
+}
+
+/* shared composition helpers */
+.beat-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.beat-bottomline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.beat-chapter {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.beat-chapter .num {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 7vw, 88px);
+  color: var(--text-disabled);
+  line-height: 0.9;
+}
+
+.beat-chapter .name {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* reveal-in helper for elements INSIDE a beat — the beat itself
+   fades via the master timeline; children can stagger with CSS
+   transitions keyed off .beat.is-live (set by the timeline) */
+.beat .rv {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+}
+.beat.is-live .rv { opacity: 1; transform: translateY(0); }
+.beat.is-live .rv-1 { transition-delay: 60ms; }
+.beat.is-live .rv-2 { transition-delay: 140ms; }
+.beat.is-live .rv-3 { transition-delay: 220ms; }
+.beat.is-live .rv-4 { transition-delay: 300ms; }
+.beat.is-live .rv-5 { transition-delay: 380ms; }
+
+/* ------- static fallback: reduced motion or small screens ------- */
+@media (prefers-reduced-motion: reduce) {
+  .overlay-stack { position: relative; inset: auto; }
+  .beat {
+    position: relative;
+    opacity: 1 !important;
+    visibility: visible !important;
+    min-height: 100vh;
+    pointer-events: auto;
+  }
+  .beat .rv { opacity: 1 !important; transform: none !important; }
+}
+
+@media (max-width: 720px) {
+  .beat { padding: 18px; }
+}
